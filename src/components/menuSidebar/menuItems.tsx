@@ -4,7 +4,10 @@ interface MenuItemProps {
 	icon: React.ReactNode
 	anchor: string
 	rotateIcon?: boolean
-	href?: string
+}
+
+interface MenuItemLinkProps extends MenuItemProps {
+	href: string
 }
 
 export const MenuItem: React.FC<MenuItemProps> = ({ icon, anchor, rotateIcon }) => {
@@ -16,7 +19,7 @@ export const MenuItem: React.FC<MenuItemProps> = ({ icon, anchor, rotateIcon }) 
 	)
 }
 
-export const MenuItemLink: React.FC<MenuItemProps> = ({ icon, anchor, href, rotateIcon }) => (
+export const MenuItemLink: React.FC<MenuItemLinkProps> = ({ icon, anchor, href, rotateIcon }) => (
 	<Link className="flex flex-nowrap items-center gap-3" href={href}>
 		<MenuItem icon={icon} anchor={anchor} rotateIcon={rotateIcon} />
 	</Link>
