@@ -15,6 +15,17 @@ type MenuSectionProps = {
 	menuItemsCount: number
 }
 
+export type ItemSubMenuProps = {
+	anchor: string
+	href?: string
+	icon: React.ReactNode
+	live?: boolean
+	counter?: string
+	openMenu?: boolean
+	iconStyle?: string
+	items?: ItemSubMenuProps[]
+}
+
 const removeLastElement = (str: string) => {
 	const index = str.lastIndexOf("/")
 	return str.substring(0, index)
@@ -31,7 +42,14 @@ const remove3LastElement = (str: string) => {
 	return result
 }
 
-const ItemSubMenu = ({ anchor, icon, live, counter = "723", openMenu, iconStyle }) => {
+const ItemSubMenu = ({
+	anchor,
+	icon,
+	live,
+	counter = "723",
+	openMenu,
+	iconStyle,
+}: ItemSubMenuProps) => {
 	return (
 		<>
 			<div className={iconStyle}>{icon}</div>
@@ -57,9 +75,7 @@ export const MenuSection: React.FC<MenuSectionProps> = ({
 }) => {
 	const pathname = usePathname()
 	const [isSubMenuOpen, setIsSubMenuOpen] = useState(false)
-	const [menuItems, setMenuItem] = useState<
-		{ anchor: string; href: string; icon: JSX.Element; live: boolean; items: [] }[]
-	>([])
+	const [menuItems, setMenuItem] = useState<ItemSubMenuProps[]>([])
 	const [iconStyle, setIconStyle] = useState<string>(
 		openMenu ? "opacity-100" : "opacity-50 grayscale",
 	)
@@ -73,7 +89,7 @@ export const MenuSection: React.FC<MenuSectionProps> = ({
 			const items = dumyData[index].items
 			setMenuItem(items)
 		}
-	}, [isSubMenuOpen])
+	}, [index, isSubMenuOpen, menuItems.length])
 
 	return (
 		<div>
@@ -109,8 +125,8 @@ export const MenuSection: React.FC<MenuSectionProps> = ({
 						const currentPage = pathname === href ? true : false
 						const openSubMenu =
 							(index === 0 && pathname === href) ||
-							(index === 0 && remove2LastElement(pathname) === removeLastElement(href)) ||
-							(index === 0 && remove3LastElement(pathname) === removeLastElement(href))
+							(index === 0 && remove2LastElement(pathname) === removeLastElement(href ?? "")) ||
+							(index === 0 && remove3LastElement(pathname) === removeLastElement(href ?? ""))
 								? true
 								: false
 						const itemSubMenutyles = (currentPage: boolean, index: number) => {
@@ -134,7 +150,7 @@ export const MenuSection: React.FC<MenuSectionProps> = ({
 									</div>
 								) : (
 									<Link
-										href={href}
+										href={href ?? ""}
 										className={`${itemSubMenutyles(currentPage, index)} hover:cursor-pointer`}
 									>
 										<ItemSubMenu
@@ -147,85 +163,90 @@ export const MenuSection: React.FC<MenuSectionProps> = ({
 									</Link>
 								)}
 								{openSubMenu || currentPage
-									? items.map(({ anchor, icon, href, live, items }, index) => {
-											const currentPage = pathname === href ? true : false
-											const openSubMenu = removeLastElement(pathname) === href ? true : false
-											return (
-												<div key={index}>
-													{currentPage ? (
-														<div
-															className={`${itemSubMenutyles(
-																currentPage,
-																index,
-															)} bg-subMenuBg border-t`}
-														>
-															<ItemSubMenu
-																anchor={anchor}
-																icon={icon}
-																live={live}
-																openMenu={openMenu}
-																iconStyle={iconStyle}
-															/>
-														</div>
-													) : (
-														<Link
-															key={index}
-															href={href}
-															className={`${itemSubMenutyles(
-																currentPage,
-																index,
-															)} bg-subMenuBg border-t hover:cursor-pointer`}
-														>
-															<ItemSubMenu
-																anchor={anchor}
-																icon={icon}
-																live={live}
-																openMenu={openMenu}
-																iconStyle={iconStyle}
-															/>
-														</Link>
-													)}
-													{(openSubMenu || currentPage) && openMenu ? (
-														<div className="flex flex-col space-y-1 pb-4 pl-7 pr-3 pt-4">
-															{items.map(({ anchor, icon, href, live, items }, index) => {
-																const currentPage = pathname === href ? true : false
-																return (
-																	<div key={index}>
-																		{currentPage ? (
-																			<div
-																				className={`flex justify-between rounded-3xl bg-menuLines pb-0.5 pl-3 pr-1.5 pt-0.5 text-[10px]`}
-																			>
-																				<div>
-																					{anchor}
-																					{live ? (
-																						<div className="h-1.5 w-1.5 rounded-full bg-green"></div>
-																					) : null}
+									? (items ?? []).map(
+											({ anchor, icon, href, live, items }: ItemSubMenuProps, index: number) => {
+												const currentPage = pathname === href ? true : false
+												const openSubMenu = removeLastElement(pathname) === href ? true : false
+												return (
+													<div key={index}>
+														{currentPage ? (
+															<div
+																className={`${itemSubMenutyles(
+																	currentPage,
+																	index,
+																)} bg-subMenuBg border-t`}
+															>
+																<ItemSubMenu
+																	anchor={anchor}
+																	icon={icon}
+																	live={live}
+																	openMenu={openMenu}
+																	iconStyle={iconStyle}
+																/>
+															</div>
+														) : (
+															<Link
+																key={index}
+																href={href ?? ""}
+																className={`${itemSubMenutyles(
+																	currentPage,
+																	index,
+																)} bg-subMenuBg border-t hover:cursor-pointer`}
+															>
+																<ItemSubMenu
+																	anchor={anchor}
+																	icon={icon}
+																	live={live}
+																	openMenu={openMenu}
+																	iconStyle={iconStyle}
+																/>
+															</Link>
+														)}
+														{(openSubMenu || currentPage) && openMenu ? (
+															<div className="flex flex-col space-y-1 pb-4 pl-7 pr-3 pt-4">
+																{items &&
+																	items.map(
+																		({ anchor, href, live }: ItemSubMenuProps, index: number) => {
+																			const currentPage = pathname === href ? true : false
+																			return (
+																				<div key={index}>
+																					{currentPage ? (
+																						<div
+																							className={`flex justify-between rounded-3xl bg-menuLines pb-0.5 pl-3 pr-1.5 pt-0.5 text-[10px]`}
+																						>
+																							<div>
+																								{anchor}
+																								{live ? (
+																									<div className="h-1.5 w-1.5 rounded-full bg-green"></div>
+																								) : null}
+																							</div>
+																							<div>9</div>
+																						</div>
+																					) : (
+																						<Link key={index} href={href ?? ""} className={``}>
+																							<div
+																								className={`flex justify-between rounded-3xl pb-0.5 pl-3 pr-1.5 pt-0.5 text-[10px]`}
+																							>
+																								<div>
+																									{anchor}
+																									{live ? (
+																										<div className="h-1.5 w-1.5 rounded-full bg-green"></div>
+																									) : null}
+																								</div>
+																								<div>9</div>
+																							</div>
+																						</Link>
+																					)}
 																				</div>
-																				<div>9</div>
-																			</div>
-																		) : (
-																			<Link key={index} href={href} className={``}>
-																				<div
-																					className={`flex justify-between rounded-3xl pb-0.5 pl-3 pr-1.5 pt-0.5 text-[10px]`}
-																				>
-																					<div>
-																						{anchor}
-																						{live ? (
-																							<div className="h-1.5 w-1.5 rounded-full bg-green"></div>
-																						) : null}
-																					</div>
-																					<div>9</div>
-																				</div>
-																			</Link>
-																		)}
-																	</div>
-																)
-															})}
-														</div>
-													) : null}
-												</div>
-											)
-									  })
+																			)
+																		},
+																	)}
+															</div>
+														) : null}
+													</div>
+												)
+											},
+									  )
 									: null}
 							</div>
 						)
