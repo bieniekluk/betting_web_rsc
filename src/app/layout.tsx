@@ -24,7 +24,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 				<Header />
 				<div className="flex overflow-hidden">
 					<Sidebar />
-					<div className={`relative z-10 h-screen overflow-auto border-l border-lines pt-[123px] `}>
+					<div
+						className={`relative z-10 h-screen overflow-auto border-l border-lines bg-workSpace pt-[123px]`}
+					>
 						<div className="bg-workSpace p-5">{children}</div>
 						<Footer />
 					</div>
