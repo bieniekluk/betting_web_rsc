@@ -1,5 +1,5 @@
 "use client"
-import React, { useState } from "react"
+import { useState } from "react"
 import { ControlPanel } from "./controlPanel"
 import { MenuSidebar } from "@/ui/menuSidebar"
 

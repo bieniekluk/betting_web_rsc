@@ -10,7 +10,10 @@ const menu = dumyData
 
 export const MenuSidebar: React.FC<MenuSidebarProps> = ({ openMenu, width }) => {
 	return (
-		<div style={{ width: width }} className="h-full overflow-y-auto pb-[118px]">
+		<div
+			style={{ width: width, transition: "all 300ms ease 0s" }}
+			className="h-full overflow-y-auto pb-[118px]"
+		>
 			{menu.map((item, index) => (
 				<MenuSection
 					key={index}
