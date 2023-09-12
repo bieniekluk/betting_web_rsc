@@ -17,7 +17,7 @@ export const IconSportsBaseball: React.FC<IconSportsBaseballProps> = ({
 			fill="none"
 			xmlns="http://www.w3.org/2000/svg"
 		>
-			<g id="Sports baseball" clipPat="url(#clip0_31_31901)">
+			<g id="Sports baseball" clipPath="url(#clip0_31_31901)">
 				<g id="Group">
 					<g id="Group_2">
 						<g id="Group_3">

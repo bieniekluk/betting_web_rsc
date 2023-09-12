@@ -17,7 +17,7 @@ export const IconSportAll: React.FC<IconSportAllProps> = ({
 			fill="none"
 			xmlns="http://www.w3.org/2000/svg"
 		>
-			<g id="Group work" clipPat="url(#clip0_31_31732)">
+			<g id="Group work" clipPath="url(#clip0_31_31732)">
 				<path
 					id="Vector"
 					d="M8 1.75C4.55 1.75 1.75 4.55 1.75 8C1.75 11.45 4.55 14.25 8 14.25C11.45 14.25 14.25 11.45 14.25 8C14.25 4.55 11.45 1.75 8 1.75ZM8 13C5.24375 13 3 10.7562 3 8C3 5.24375 5.24375 3 8 3C10.7562 3 13 5.24375 13 8C13 10.7562 10.7562 13 8 13Z"

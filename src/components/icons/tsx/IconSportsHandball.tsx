@@ -17,7 +17,7 @@ export const IconSportsHandball: React.FC<IconSportsHandballProps> = ({
 			fill="none"
 			xmlns="http://www.w3.org/2000/svg"
 		>
-			<g id="Sports handball" clipPat="url(#clip0_31_31816)">
+			<g id="Sports handball" clipPath="url(#clip0_31_31816)">
 				<g id="Group">
 					<g id="Group_2">
 						<path
