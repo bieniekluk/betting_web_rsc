@@ -1,7 +1,7 @@
 // eslint-disable-next-line import/no-named-as-default
 import ReactCountryFlag from "react-country-flag"
-import type { ItemSubMenuProps } from "./menuSection"
-import { IconSportFire, IconSportFootball, IconSportAll } from "@/ui/icons"
+import type { ItemSubMenuProps } from "./MenuSection"
+import { IconSportFire, IconSportFootball, IconSportAll } from "@/ui/Icons"
 
 type menuDataType = {
 	sectionName: string

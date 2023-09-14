@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { IconFacebook, IconInstagram, IconTwitter } from "@/ui/icons"
+import { IconFacebook, IconInstagram, IconTwitter } from "@/ui/Icons"
 type SocialsIconsProps = {}
 
 export const SocialsIcons: React.FC<SocialsIconsProps> = () => {

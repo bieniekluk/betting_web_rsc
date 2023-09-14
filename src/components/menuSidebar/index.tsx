@@ -1,5 +1,5 @@
 import { dumyData } from "./dumyData"
-import { MenuSection } from "./menuSection"
+import { MenuSection } from "./MenuSection"
 
 type MenuSidebarProps = {
 	openMenu: boolean

@@ -21,11 +21,17 @@
 			}
 		],
 		"baseUrl": "src/",
-    "paths": {
-      "@/*": ["*"],
-      "@/ui/*": ["components/*"]
-    }
+		"paths": {
+			"@/*": ["*"],
+			"@/ui/*": ["components/*"]
+		}
 	},
-	"include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/components/menuSidebar/dumyData.tss"],
+	"include": [
+		"next-env.d.ts",
+		"**/*.ts",
+		"**/*.tsx",
+		".next/types/**/*.ts",
+		"src/components/MenuSidebar/dumyData.tss"
+	],
 	"exclude": ["node_modules"]
 }

@@ -4,7 +4,7 @@ import Link from "next/link"
 import { usePathname } from "next/navigation"
 import PerfectScrollbar from "react-perfect-scrollbar"
 import { dumyData } from "./dumyData"
-import { Label } from "@/ui/labels"
+import { Label } from "@/ui/Labels"
 import "react-perfect-scrollbar/dist/css/styles.css"
 
 type MenuSectionProps = {
@@ -212,7 +212,7 @@ export const MenuSection: React.FC<MenuSectionProps> = ({
 																				<div key={index}>
 																					{currentPage ? (
 																						<div
-																							className={`flex justify-between rounded-3xl bg-menuLines pb-0.5 pl-3 pr-1.5 pt-0.5 text-[10px]`}
+																							className={`text-mediumXs flex justify-between rounded-3xl bg-menuLines pb-0.5 pl-3 pr-1.5 pt-0.5`}
 																						>
 																							<div>
 																								{anchor}
@@ -225,7 +225,7 @@ export const MenuSection: React.FC<MenuSectionProps> = ({
 																					) : (
 																						<Link key={index} href={href ?? ""} className={``}>
 																							<div
-																								className={`flex justify-between rounded-3xl pb-0.5 pl-3 pr-1.5 pt-0.5 text-[10px]`}
+																								className={`text-mediumXs flex justify-between rounded-3xl pb-0.5 pl-3 pr-1.5 pt-0.5`}
 																							>
 																								<div>
 																									{anchor}

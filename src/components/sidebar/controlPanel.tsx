@@ -1,7 +1,7 @@
 "use client"
 import { useState } from "react"
 import { dumyData } from "./dumyData"
-import { MenuItem, MenuItemLink } from "@/components/menuSidebar/menuItems"
+import { MenuItem, MenuItemLink } from "@/ui/MenuSidebar/MenuItems"
 
 type ControlPanelProps = {
 	width?: number
@@ -29,13 +29,13 @@ export const ControlPanel: React.FC<ControlPanelProps> = ({ width, onStateChange
 			{controlPanelItems.map(({ anchor, icon, href }) => (
 				<>
 					{href ? (
-						<MenuItemLink icon={icon} anchor={anchor} href={href} rotateIcon={openMenu} />
+						<MenuItemLink icon={icon} anchor={anchor} href={href} openMenu={openMenu} />
 					) : (
 						<div
 							className="flex flex-nowrap items-center gap-3 hover:cursor-pointer"
 							onClick={() => handleChange()}
 						>
-							<MenuItem icon={icon} anchor={anchor} rotateIcon={openMenu} />
+							<MenuItem icon={icon} anchor={anchor} openMenu={openMenu} rotateIcon={openMenu} />
 						</div>
 					)}
 				</>

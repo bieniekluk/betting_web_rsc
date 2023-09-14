@@ -11,7 +11,7 @@ export const MenuFooter: React.FC<MenuFooterProps> = ({ title, items }) => {
 			<div className="mb-5 text-sm font-bold uppercase">{title}</div>
 			<div className="flex flex-col space-y-1">
 				{items.map(({ href, anchor }, index) => (
-					<Link className="text-[10px]" key={index} href={href}>
+					<Link className="text-mediumXs" key={index} href={href}>
 						{anchor}
 					</Link>
 				))}

@@ -1,7 +1,7 @@
 "use client"
 import { useState } from "react"
-import { ControlPanel } from "./controlPanel"
-import { MenuSidebar } from "@/ui/menuSidebar"
+import { ControlPanel } from "./ControlPanel"
+import { MenuSidebar } from "@/ui/MenuSidebar"
 
 type SidebarProps = {
 	pt?: number

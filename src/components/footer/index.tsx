@@ -1,8 +1,8 @@
 import Image from "next/image"
 import Link from "next/link"
-import { Logo } from "@/ui/logo"
-import { SocialsIcons } from "@/ui/socialsIcons"
-import { MenuFooter } from "@/ui/menuFooter"
+import { Logo } from "@/ui/Logo"
+import { SocialsIcons } from "@/ui/SocialsIcons"
+import { MenuFooter } from "@/ui/MenuFooter"
 
 type FooterProps = {}
 

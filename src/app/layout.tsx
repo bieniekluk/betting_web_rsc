@@ -1,10 +1,10 @@
 import "./globals.css"
 import type { Metadata } from "next"
 import { Montserrat } from "next/font/google"
-import { Header } from "@/ui/header"
-import { Footer } from "@/ui/footer"
-import { Sidebar } from "@/ui/sidebar"
-import { Cart } from "@/ui/cart"
+import { Header } from "@/ui/Header"
+import { Footer } from "@/ui/Footer"
+import { Sidebar } from "@/ui/Sidebar"
+import { CartSidebar, CartSimpleView, CartSummary } from "@/ui/Cart"
 
 const montserrat = Montserrat({
 	weight: ["400", "600", "700"],
@@ -31,7 +31,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 						<Footer />
 					</div>
 				</div>
-				<Cart />
+				{/* //TODO: przygotowane do RSC */}
+				<CartSidebar simpleView={<CartSimpleView />} summary={<CartSummary />} />{" "}
 			</body>
 		</html>
 	)

@@ -1,4 +1,4 @@
-import { IconArrowCollapseLeft, IconHeart, IconComment } from "@/ui/icons"
+import { IconArrowCollapseLeft, IconHeart, IconComment } from "@/ui/Icons"
 
 export const dumyData = [
 	{
