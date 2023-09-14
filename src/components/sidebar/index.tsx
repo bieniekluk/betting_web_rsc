@@ -19,7 +19,7 @@ export const Sidebar: React.FC<SidebarProps> = () => {
 	}
 
 	return (
-		<div className={`relative flex h-screen flex-col justify-between pt-[123px]`}>
+		<div className={`relative flex h-screen flex-col justify-between pt-[139px]`}>
 			<MenuSidebar width={width} openMenu={openMenu} />
 			<ControlPanel width={width} onStateChange={hendleOpenMenu} />
 		</div>

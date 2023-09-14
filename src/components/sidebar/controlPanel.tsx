@@ -24,7 +24,7 @@ export const ControlPanel: React.FC<ControlPanelProps> = ({ width, onStateChange
 	return (
 		<div
 			style={{ width: width, transition: "all 300ms ease 0s" }} //TODO: transition to Taliwind CSS
-			className={`pt fixed bottom-0 z-10 flex flex-col space-y-5 bg-workSpace p-3 shadow-3xl`}
+			className={`pt fixed bottom-0 z-10 flex flex-col space-y-3 bg-workSpace p-3 shadow-3xl`}
 		>
 			{controlPanelItems.map(({ anchor, icon, href }) => (
 				<>
