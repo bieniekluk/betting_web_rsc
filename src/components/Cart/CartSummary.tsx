@@ -1,4 +1,4 @@
-import { IconCoupon, IconDelete } from "./icons"
+import { IconCoupon, IconDelete } from "./Icons"
 import { Input } from "@/ui/Forms"
 import { ButtonCta } from "@/ui/Buttons"
 
